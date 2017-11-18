@@ -37,6 +37,7 @@ class multi_post_blogger
       // authentikasi
       $client->authenticate($_GET['code']);
       $_SESSION['token'] = $client->getAccessToken();
+      header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
     }
     if (isset($_SESSION['token'])) { // extract token from session and configure client
       $token = $_SESSION['token'];
